@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hello World!</title>
+
+    <link href="css/style.css" type="text/css" media="all" rel="stylesheet"/>
+</head>
+<body>
+<form th:action="@{/logout}" method="post" class="form">
+    <h1 th:inline="text" style="align-content: center">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <button type="submit">sign out</button>
+</form>
+
+</body>
+</html>

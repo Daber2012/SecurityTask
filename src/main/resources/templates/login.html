@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Spring Security Example </title>
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link href="css/style.css" type="text/css" media="all" rel="stylesheet"/>
+    <th:block layout:fragment="script">
+        <script th:src="@{/js/login.js}"></script>
+    </th:block>
+</head>
+<body>
+
+<div class="login-page">
+    <div class="form">
+        <form class="register-form" th:action="@{/registration}" method="post" >
+            <input type="text" placeholder="username" name="username"/>
+            <input type="password" placeholder="password" name="password"/>
+            <div class="pass-info"></div>
+            <button type="submit">create</button>
+            <div class="message">Already registered? Sign In</div>
+        </form>
+        <form class="login-form" th:action="@{/login}" method="post">
+            <div th:if="${param.logout}" class="warn">
+                You have been logged out.
+            </div>
+            <div th:if="${param.error}" class="warn">
+                Invalid username and password.
+            </div>
+            <input type="text" placeholder="username" name="username"/>
+            <input type="password" placeholder="password" name="password"/>
+            <button type="submit">login</button>
+            <div class="message">Not registered? Create an account</div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
